@@ -1,4 +1,4 @@
-#------------ Load Libraries -----#
+# ------------ Load Libraries -----
 
 library(magrittr)
 library(dplyr)
