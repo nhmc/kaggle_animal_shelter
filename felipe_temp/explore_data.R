@@ -108,5 +108,10 @@ trainPrep.df %<>% inner_join(pet.MainBreed)
 #outcome vs Main breed category
 plot.breedmain <- ggplot(data=trainPrep.df,aes(x=factor(PetBreedCat)))
 plot.breedmain <- plot.breedmain + geom_bar(aes(fill=factor(OutcomeType)),position='fill')
-plot.breedmain <- plot.breedmain + labs(title='Outcome vs Day',x='Breed Category',y='Normalised count')
+plot.breedmain <- plot.breedmain + labs(title='Outcome vs Breed',x='Breed Category',y='Normalised count')
 plot.breedmain
+
+train.df <- trainPrep.df %>% select(AnimalID,Name,AnimalType,dt_year,dt_month,dt_dayofweek,AgeuponOutcome_days,
+                                    sex,desexed,Breed_is_mix,PetBreedCat,dogsize,OutcomeType)
+
+save(train.df, file="trainReady.rda")
